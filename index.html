@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000; /* Black background like space */
+            font-family: Arial, sans-serif;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .sun {
+            width: 500px;
+            height: 500px;
+            background-color: yellow;
+            border-radius: 50%;
+            position: relative;
+            z-index: 3;
+        }
+
+        .orbit {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px dashed rgba(255, 255, 255, 0.2); /* Orbit line */
+        }
+
+        /* Earth Orbit */
+        .earth-orbit {
+            width: 600px;
+            height: 600px;
+            animation: orbit 20s linear infinite;
+        }
+
+        /* Mars Orbit */
+        .mars-orbit {
+            width: 800px;
+            height: 800px;
+            animation: orbit 30s linear infinite;
+        }
+
+        /* Saturn Orbit */
+        .saturn-orbit {
+            width: 1000px;
+            height: 1000px;
+            animation: orbit 40s linear infinite;
+        }
+
+        /* Planets and Moons */
+        .earth, .mars, .saturn, .moon, .mars-moon, .saturn-moon {
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .earth {
+            width: 60px;
+            height: 60px;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg');
+            background-size: cover;
+            background-position: center;
+            animation: spin 5s linear infinite;
+        }
+
+        .mars {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+        }
+
+        .saturn {
+            width: 80px;
+            height: 80px;
+            background-color: #f5d742;
+        }
+
+        /* Moons */
+        .moon {
+            width: 20px;
+            height: 20px;
+            background-color: gray;
+        }
+
+        .mars-moon {
+            width: 15px;
+            height: 15px;
+            background-color: lightgray;
+        }
+
+        .saturn-moon {
+            width: 20px;
+            height: 20px;
+            background-color: white;
+        }
+
+        /* Orbit animations */
+        @keyframes orbit {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Earth Spin */
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Moon Orbits */
+        .moon-orbit, .mars-moon-orbit, .saturn-moon-orbit {
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .moon-orbit {
+            width: 150px;
+            height: 150px;
+            top: 50%;
+            left: 50%;
+            margin-left: -75px;
+            margin-top: -75px;
+            animation: moonOrbit 5s linear infinite;
+        }
+
+        .mars-moon-orbit {
+            width: 120px;
+            height: 120px;
+            top: 50%;
+            left: 50%;
+            margin-left: -60px;
+            margin-top: -60px;
+            animation: moonOrbit 6s linear infinite;
+        }
+
+        .saturn-moon-orbit {
+            width: 160px;
+            height: 160px;
+            top: 50%;
+            left: 50%;
+            margin-left: -80px;
+            margin-top: -80px;
+            animation: moonOrbit 7s linear infinite;
+        }
+
+        /* Moon Orbit Animation */
+        @keyframes moonOrbit {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .text {
+            position: absolute;
+            bottom: 30px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sun"></div>
+
+    <!-- Earth and its Moon -->
+    <div class="orbit earth-orbit">
+        <div class="earth">
+            <div class="moon-orbit">
+                <div class="moon"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mars and its Moon -->
+    <div class="orbit mars-orbit">
+        <div class="mars">
+            <div class="mars-moon-orbit">
+                <div class="mars-moon"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Saturn and its Moon -->
+    <div class="orbit saturn-orbit">
+        <div class="saturn">
+            <div class="saturn-moon-orbit">
+                <div class="saturn-moon"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text">World is not enough</div>
+
+</body>
+</html>
